@@ -17,7 +17,7 @@ if ( '1' !== get_option( 'cetus_media_delete_on_uninstall', '0' ) ) {
 global $wpdb;
 
 // Opzioni plugin.
-$options = [
+$cetus_mo_options = [
 	'cetus_media_format',
 	'cetus_media_auto_convert',
 	'cetus_media_webp_quality',
@@ -42,10 +42,10 @@ $options = [
 	'cetus_mo_total_bytes_saved',
 ];
 
-foreach ( $options as $option ) {
-	delete_option( $option );
+foreach ( $cetus_mo_options as $cetus_mo_option ) {
+	delete_option( $cetus_mo_option );
 }
 
 // Post meta su tutti gli allegati.
-// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 $wpdb->delete( $wpdb->postmeta, [ 'meta_key' => 'cetus_mo_exclude' ], [ '%s' ] );
