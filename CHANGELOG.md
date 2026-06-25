@@ -6,6 +6,18 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ---
 
+## [1.5.6] – 2026-06-25
+
+### Added
+
+- **Opt-in data cleanup on uninstall** — New "Data & Privacy" section in the Preferences tab with a checkbox (`cetus_media_delete_on_uninstall`). When enabled, all plugin options and `cetus_mo_exclude` post meta are permanently deleted from the database upon uninstallation via `uninstall.php`. Original image files are never removed.
+
+### Fixed
+
+- Removed all references to the legacy plugin name from plugin header, source comments and changelog.
+
+---
+
 ## [1.5.3] – 2026-06-23
 
 ### Fixed
