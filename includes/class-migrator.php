@@ -1,6 +1,6 @@
 <?php
 /**
- * Gestisce la migrazione sicura dalla v1.x (Cetus WebP Converter) alla v2.0.
+ * Gestisce la migrazione sicura dalla v1.x alla v2.0.
  *
  * Rimuove le opzioni e i log obsoleti del vecchio plugin, mappando
  * eventuali valori validi nelle nuove opzioni di Cetus Image Converter & AI Alt Text.
@@ -22,7 +22,7 @@ if ( class_exists( 'Cetus_MO_Migrator' ) ) {
 class Cetus_MO_Migrator {
 
 	/**
-	 * Prefisso delle opzioni del vecchio plugin Cetus WebP Converter (v1.x).
+	 * Prefisso delle opzioni del vecchio plugin (v1.x).
 	 *
 	 * @var string
 	 */

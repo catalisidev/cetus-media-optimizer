@@ -66,4 +66,4 @@ First public release of **Cetus Image Converter & AI Alt Text**.
 - **AI Alt Text language selector** — auto-detected from WordPress locale (22 languages) or manually overridden. Custom prompt textarea.
 - **Opt-in anonymous crash reporting** — via Sentry (disabled by default). Stack traces filtered to plugin files only; no IP, username, or personal data transmitted.
 - **Internationalisation** — English source strings; `it_IT`, `es_ES`, `fr_FR`, `de_DE` translations included.
-- **Migrator** — automatic migration from legacy Cetus WebP Converter (v1.x) options.
+- **Migrator** — automatic migration from legacy v1.x options.

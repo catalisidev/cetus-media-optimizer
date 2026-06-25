@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Cetus Image Converter & AI Alt Text
  * Plugin URI:        https://github.com/catalisidev/cetus-media-optimizer
- * Description:       Advanced media optimizer: converts images to AVIF/WebP, auto-generates Alt Text via AI (Gemini / OpenAI), detects orphan files and manages your media library. Evolution of Cetus WebP Converter.
+ * Description:       Advanced media optimizer: converts images to AVIF/WebP, auto-generates Alt Text via AI (Gemini / OpenAI), detects orphan files and manages your media library.
  * Version:           1.5.5
  * Requires at least: 6.2
  * Requires PHP:      8.0
@@ -74,7 +74,7 @@ cetus_mo_load_classes();
 
 /**
  * Hook di attivazione: crea opzioni di default ed esegue la migrazione
- * dalla v1.x (Cetus WebP Converter) se necessario.
+ * dalla v1.x se necessario.
  *
  * @return void
  */
