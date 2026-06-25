@@ -3,7 +3,7 @@ Contributors:      catalisi, danielegagliardi
 Tags:              webp, avif, image optimization, alt text, ai
 Requires at least: 6.2
 Tested up to:      7.0
-Stable tag:        1.5.6
+Stable tag:        1.5.7
 Requires PHP:      8.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -120,6 +120,9 @@ No, by default. The opt-in checkbox is disabled by default. If you enable it, an
 
 == Changelog ==
 
+= 1.5.7 – 2026-06-25 =
+* **Fixed** — Minor tweaks and improvements.
+
 = 1.5.6 – 2026-06-25 =
 * **Added** — Opt-in data cleanup on uninstall: new "Data & Privacy" section in Preferences with a checkbox to permanently remove all plugin settings and attachment metadata from the database upon uninstallation. Original image files are never deleted.
 * **Fixed** — Removed all references to the legacy plugin name from source code, changelog and plugin header.
@@ -167,6 +170,9 @@ No, by default. The opt-in checkbox is disabled by default. If you enable it, an
 * **Fixed** — Stop button showed wrong dashicon (rewind instead of stop).
 
 == Upgrade Notice ==
+
+= 1.5.7 =
+Minor tweaks and improvements.
 
 = 1.5.6 =
 Adds opt-in data cleanup on uninstall. Enable it in Preferences → Data & Privacy if you want all plugin data removed when deleting the plugin.
