@@ -89,18 +89,19 @@ class Cetus_MO_Admin {
 	 */
 	public function register_settings(): void {
 		$options = [
-			'cetus_media_format'            => [ $this, 'sanitize_format' ],
-			'cetus_media_auto_convert'      => [ $this, 'sanitize_checkbox' ],
-			'cetus_media_webp_quality'      => [ $this, 'sanitize_quality' ],
-			'cetus_media_avif_quality'      => [ $this, 'sanitize_quality' ],
-			'cetus_media_ai_provider'       => [ $this, 'sanitize_ai_provider' ],
-			'cetus_media_ai_fallback'       => [ $this, 'sanitize_checkbox' ],
-			'cetus_media_gemini_key'        => [ $this, 'sanitize_api_key' ],
-			'cetus_media_openai_key'        => [ $this, 'sanitize_api_key' ],
-			'cetus_media_alt_text_language' => [ $this, 'sanitize_language' ],
-			'cetus_media_alt_text_prompt'   => 'sanitize_textarea_field',
-			'cetus_media_cron_enabled'      => [ $this, 'sanitize_checkbox' ],
-			'cetus_media_telemetry_opt_in'  => [ $this, 'sanitize_checkbox' ],
+			'cetus_media_format'              => [ $this, 'sanitize_format' ],
+			'cetus_media_auto_convert'        => [ $this, 'sanitize_checkbox' ],
+			'cetus_media_webp_quality'        => [ $this, 'sanitize_quality' ],
+			'cetus_media_avif_quality'        => [ $this, 'sanitize_quality' ],
+			'cetus_media_ai_provider'         => [ $this, 'sanitize_ai_provider' ],
+			'cetus_media_ai_fallback'         => [ $this, 'sanitize_checkbox' ],
+			'cetus_media_gemini_key'          => [ $this, 'sanitize_api_key' ],
+			'cetus_media_openai_key'          => [ $this, 'sanitize_api_key' ],
+			'cetus_media_alt_text_language'   => [ $this, 'sanitize_language' ],
+			'cetus_media_alt_text_prompt'     => 'sanitize_textarea_field',
+			'cetus_media_cron_enabled'        => [ $this, 'sanitize_checkbox' ],
+			'cetus_media_telemetry_opt_in'    => [ $this, 'sanitize_checkbox' ],
+			'cetus_media_delete_on_uninstall' => [ $this, 'sanitize_checkbox' ],
 		];
 
 		foreach ( $options as $option => $callback ) {
@@ -322,6 +323,7 @@ class Cetus_MO_Admin {
 						<?php settings_fields( self::OPTIONS_GROUP ); ?>
 						<?php $this->render_step2(); ?>
 						<?php $this->render_telemetry(); ?>
+						<?php $this->render_uninstall_section(); ?>
 					</form>
 				<?php elseif ( 'libreria' === $active_tab ) : ?>
 					<?php $this->render_step3( $optimizer ); ?>
@@ -1083,6 +1085,32 @@ class Cetus_MO_Admin {
 		</table>
 		<?php
 		submit_button( __( 'Save Preferences', 'cetus-media-optimizer' ), 'primary', 'submit', true, [ 'id' => 'cmo-save-btn-bottom' ] );
+	}
+
+	/**
+	 * Render della sezione uninstall cleanup (Opt-in, disabilitata di default).
+	 *
+	 * @return void
+	 */
+	private function render_uninstall_section(): void {
+		?>
+		<hr>
+		<h3><?php esc_html_e( 'Data & Privacy', 'cetus-media-optimizer' ); ?></h3>
+		<table class="form-table" role="presentation">
+			<tr>
+				<th scope="row"><?php esc_html_e( 'Remove data on uninstall', 'cetus-media-optimizer' ); ?></th>
+				<td>
+					<label for="cetus_media_delete_on_uninstall">
+						<input type="checkbox" id="cetus_media_delete_on_uninstall" name="cetus_media_delete_on_uninstall" value="1" <?php checked( '1', get_option( 'cetus_media_delete_on_uninstall', '0' ) ); ?> />
+						<?php esc_html_e( 'Delete all plugin settings and data when the plugin is uninstalled.', 'cetus-media-optimizer' ); ?>
+					</label>
+					<p class="description" style="margin-top:8px;">
+						<?php esc_html_e( 'When enabled, all plugin options and attachment metadata stored by Cetus will be permanently removed from the database upon uninstallation. Your original image files are never deleted.', 'cetus-media-optimizer' ); ?>
+					</p>
+				</td>
+			</tr>
+		</table>
+		<?php
 	}
 
 	// -------------------------------------------------------------------------
